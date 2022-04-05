@@ -1,7 +1,14 @@
 <script>
-    let name = "Hi Svelte!"
+    import {todos} from "~/store"
+    import CreateTodo from "./components/CreateTodo.svelte";
+
 </script>
 
-<h1>안녕하세요</h1>
+<div class="container">
+    <CreateTodo/>
+    {#each $todos as todo (todo.id)}
+        <div>{todo.title}</div>
+    {/each}
+</div>
 
-<h1>{name}</h1>
+<style lang="scss"></style>

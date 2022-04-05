@@ -98,14 +98,3 @@ bind:name={name}
 ESM ( ECMAScript Module) 미지원 브라우저에서는 동작불가
 마이그레이션 비용(처음부터 스노우팩으로 개발되지않은 프로젝트에 중간부터 적용하기 힘듬)
 
-
----
-
-#### 사용한 터미널 명령어
-
-```
-npm i -D snowpack svelte @snowpack/plugin-svelte
-
-
-
-```

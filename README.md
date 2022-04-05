@@ -1,11 +1,12 @@
-Svelte 특징
+## Svelte basic 맛보기
+
+#### Svelte 특징
 
 - Write less code 보일러플레이트를 사용해서 코드양을 줄일수있다
-
 - No virtual DOM 기존의 react처럼 가상돔을 이용하지않아도특정한 렌더링이 일어나는부분만 렌더링되도록하는기술을 사용함으로써 속도를 올릴수있다
-
 - Truly reactive 반응성을 구현할수있다. 디테일함을 개발자가 추구할수있다
 
+```
 SvelteJs 페이지에서 Repl 에서 간단한 코딩가능 및깃헙에 저장가능
 
 Vue처럼 <template>안에 html 태그 작성필요없음그냥 작성하면됨
@@ -16,7 +17,12 @@ Vue처럼 <template>안에 html 태그 작성필요없음그냥 작성하면됨
 
 svelte는 상태관리위한 스토어 기능이 자동탑제되어있다
 
-store.js 파일을 생성해서
+```
+
+---
+
+store.js 파일을 생성한 후
+
 ```
 import { readable, writable } from "svelte/store"
 
@@ -24,6 +30,7 @@ export let name = writable("jason")
 ```
 
 App.svelte파일로 와서
+
 ```
 <script>
    import { name } from "./store.js"
@@ -31,11 +38,14 @@ App.svelte파일로 와서
 
 <h1> {$name} </h1>
 ```
+
 와 같이 스토어로 받은 변수는 $ 기호를 앞에 써준다
 
-- 문법 특이점
+---
 
-시작은 # 중간은 : 끝은 /
+#### 문법 특이점
+
+- 시작은 # 중간은 : 끝은 /
 
 ```
 onClick => on:click
@@ -77,7 +87,7 @@ bind:name={name}
 
 ---
 
-- Snowpack 의 특징
+#### Snowpack 의 특징
 
 번들러와 비슷한 동작을 하지만 빌드도구이다
 
@@ -92,5 +102,17 @@ bind:name={name}
 ```
 npm i -D snowpack svelte @snowpack/plugin-svelte
 
+npm i -D @snowpack/plugin-optimize // 빌드를 최적화 해주는 플러그인 -> 빌드된 파일들이 한줄로 난독화되어 최적화된다
+
+npm i -D @snowpack/plugin-babel
+
+npm i -D @snowpack/plugin-sass
+
+npm i -D svelte-preprocess // 참고:https://github.com/sveltejs/svelte-preprocess
+
+npm i -D shortid
+
 
 ```
+
+설치한 플러그인은 snowpack.config.js 파일안에 plugins 배열안에 추가해줘야 적용된다.
