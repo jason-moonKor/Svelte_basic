@@ -1,5 +1,5 @@
 <script>
-    import { todos } from "~/store"
+    import { todos,saveStorage } from "~/store"
     import shortid from "shortid"
 
     let title = ""
@@ -14,6 +14,7 @@
         })
 
         $todos = $todos // svelte 반응성에 의해 데이터 재할당을 꼭 해줘야 렌더링이 된다
+        saveStorage()
 
         title = "";
         console.log($todos)
